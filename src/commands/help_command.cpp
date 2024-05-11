@@ -1,14 +1,16 @@
 // By: Landon Prince (5/10/2024)
 
+#include "core/utils.h"
 #include "commands/help_command.h"
 #include "commands/quit_command.h"
-#include "core/utils.h"
+#include "commands/load_command.h"
 #include <iostream>
 
 bool HelpCommand::execute()
 {
     if (commandName.empty()) {
         std::cout << "Available commands:\n";
+        std::cout << "  load\n";
         std::cout << "  help\n";
         std::cout << "  quit\n";
     } else {
@@ -16,6 +18,8 @@ bool HelpCommand::execute()
             QuitCommand::help();
         else if (commandName == "help")
             HelpCommand::help();
+        else if (commandName == "load")
+            LoadCommand::help();
         else
             throw std::logic_error("unknown command: " + commandName);
     }

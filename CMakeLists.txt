@@ -21,7 +21,9 @@ add_executable(Pixalyze main.cpp
         include/commands/command_impl.h
         include/core/utils.h
         src/commands/help_command.cpp
-        include/commands/help_command.h)
+        include/commands/help_command.h
+        src/commands/load_command.cpp
+        include/commands/load_command.h)
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
 

@@ -5,6 +5,7 @@
 #include "commands/command.h"
 #include "commands/quit_command.h"
 #include "commands/help_command.h"
+#include "commands/load_command.h"
 
 CommandFactory::CommandFactory(ImageManager* im)
         : im(im) {
@@ -39,6 +40,8 @@ Command CommandFactory::makeCommand(const std::string& input) {
         return makeQuit();
     else if (keyword == "help")
         return makeHelp(params);
+    else if (keyword == "load")
+        return makeLoad(params);
 
     if (keyword.empty())
         throw std::logic_error("use quit command to exit...");
@@ -54,6 +57,9 @@ Command CommandFactory::makeHelp(const std::deque<std::string>& params) {
     return Command(new HelpCommand(im, params));
 }
 
+Command CommandFactory::makeLoad(const std::deque<std::string>& params) {
+    return Command(new LoadCommand(im, params));
+}
 
 
 

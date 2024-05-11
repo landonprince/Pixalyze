@@ -46,6 +46,8 @@ public:
      */
     Command makeHelp(const std::deque<std::string>& params);
 
+    Command makeLoad(const std::deque<std::string>& params);
+
 private:
     ImageManager* im; // ImageManager against which to execute
 };

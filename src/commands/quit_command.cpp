@@ -4,7 +4,7 @@
 #include <iostream>
 
 bool QuitCommand::execute() {
-    std::cout << "Shutting down...\n";
+    std::cout << "shutting down application...\n";
     return false;
 }
 

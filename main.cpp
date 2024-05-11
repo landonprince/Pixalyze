@@ -8,7 +8,7 @@
 
 /**
  * Entry point of the program
- * Starts the system run loop
+ * Starts the application run loop
  */
 int main() {
     try {
@@ -20,7 +20,7 @@ int main() {
             std::string input;
             std::getline(std::cin, input);
             if (std::cin.fail()) {
-                std::cerr << "invalid input" << std::endl;
+                std::cout << "invalid input" << std::endl;
                 std::terminate();
             }
             try {

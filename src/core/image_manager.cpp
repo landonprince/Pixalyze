@@ -2,9 +2,16 @@
 
 #include "core/image_manager.h"
 
-ImageManager::ImageManager() {
-}
-
-ImageManager::~ImageManager() {
-
+void ImageManager::loadImage(const std::string& filePath) {
+    try {
+        image = cv::imread(filePath);
+    } catch (std::exception& e) {
+        std::cout << "failed to load image: " << e.what() << std::endl;
+    }
+    if (image.empty()) {
+        std::cout << "failed to load image" << std::endl;
+    }
+    else {
+        std::cout << "image successfully loaded" << std::endl;
+    }
 }
