@@ -20,17 +20,17 @@ int main() {
             std::string input;
             std::getline(std::cin, input);
             if (std::cin.fail()) {
-                std::cerr << "Invalid input" << std::endl;
+                std::cerr << "invalid input" << std::endl;
                 std::terminate();
             }
             try {
                 Command cmd = factory.makeCommand(input);
                 runLoopFlag = cmd.execute();
             } catch (std::exception& e) {
-                std::cout << "Command error: " << e.what() << std::endl;
+                std::cout << "command error: " << e.what() << std::endl;
             }
         }
     } catch (std::exception& e) {
-        std::cout << "Startup error: " << e.what() << std::endl;
+        std::cout << "startup error: " << e.what() << std::endl;
     }
 }

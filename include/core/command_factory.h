@@ -40,6 +40,12 @@ public:
      */
     Command makeQuit();
 
+    /**
+     * Make a help command
+     * @return HelpCommand instance (fully bridged)
+     */
+    Command makeHelp(const std::deque<std::string>& params);
+
 private:
     ImageManager* im; // ImageManager against which to execute
 };

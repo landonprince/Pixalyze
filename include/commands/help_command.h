@@ -1,28 +1,28 @@
 // By: Landon Prince (5/10/2024)
 
-#ifndef PIXALYZE_QUIT_COMMAND_H
-#define PIXALYZE_QUIT_COMMAND_H
+#ifndef PIXALYZE_HELP_COMMAND_H
+#define PIXALYZE_HELP_COMMAND_H
 
 #include "command_impl.h"
 
 /**
- * Represents a request to quit the application
+ * Represents a request to obtain help
  * @extends CommandImpl
  */
-class QuitCommand final : public CommandImpl {
+class HelpCommand final : public CommandImpl {
 public:
-    QuitCommand() = delete; // only allow factory to create
+    HelpCommand() = delete; // only allow factory to create
 
     // Default destructor, copy-constructor and assignment
-    ~QuitCommand() override = default;
-    QuitCommand(const QuitCommand&) = default;
-    QuitCommand& operator=(const QuitCommand&) = default;
+    ~HelpCommand() override = default;
+    HelpCommand(const HelpCommand&) = default;
+    HelpCommand& operator=(const HelpCommand&) = default;
 
     /**
      * Execute the command
      * @return True if success, false otherwise (ends run loop)
      */
-     bool execute() override;
+    bool execute() override;
 
     /**
      * Static method to print out help for the command
@@ -36,7 +36,9 @@ private:
      * Primary constructor
      * @param im ImageManager against which it executes
      */
-     explicit QuitCommand(ImageManager* im);
+    HelpCommand(ImageManager* im, const std::deque<std::string>& params);
+
+    std::string commandName;
 };
 
-#endif //PIXALYZE_QUIT_COMMAND_H
+#endif //PIXALYZE_HELP_COMMAND_H

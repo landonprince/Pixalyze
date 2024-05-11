@@ -4,6 +4,7 @@
 #include <iostream>
 
 bool QuitCommand::execute() {
+    std::cout << "Shutting down...\n";
     return false;
 }
 
@@ -11,4 +12,4 @@ void QuitCommand::help() {
     std::cout << "quit - exit the application\n";
 }
 
-QuitCommand::QuitCommand(ImageManager *im) : CommandImpl(im){}
+QuitCommand::QuitCommand(ImageManager *im) : CommandImpl(im) {}
