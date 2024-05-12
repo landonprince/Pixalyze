@@ -1,0 +1,9 @@
+// By: Landon Prince (5/11/2024)
+
+#ifndef PIXALYZE_DISPLAY_COMMAND_H
+
+
+
+#define PIXALYZE_DISPLAY_COMMAND_H
+
+#endif //PIXALYZE_DISPLAY_COMMAND_H

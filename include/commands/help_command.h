@@ -4,6 +4,9 @@
 #define PIXALYZE_HELP_COMMAND_H
 
 #include "command_impl.h"
+#include "commands/command_trie.h"
+
+class CommandTrie;
 
 /**
  * Represents a request to obtain help
@@ -32,13 +35,16 @@ public:
     friend class CommandFactory; // to enable command creation
 
 private:
+    CommandTrie* ct;
+    std::string commandName;
+
     /**
      * Primary constructor
      * @param im ImageManager against which it executes
+     * @param ct CommandTrie to use commands
+     * @param im params for the command
      */
-    HelpCommand(ImageManager* im, const std::deque<std::string>& params);
-
-    std::string commandName;
+    HelpCommand(ImageManager* im, CommandTrie* ct, const std::deque<std::string>& params);
 };
 
 #endif //PIXALYZE_HELP_COMMAND_H

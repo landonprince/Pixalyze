@@ -2,7 +2,6 @@
 
 #include "core/image_manager.h"
 #include "core/command_factory.h"
-#include "commands/command.h"
 #include <iostream>
 #include <string>
 
@@ -13,7 +12,8 @@
 int main() {
     try {
         ImageManager im;
-        CommandFactory factory(&im);
+        CommandTrie ct;
+        CommandFactory factory(&im, &ct);
 
         bool runLoopFlag = true;
         while (runLoopFlag) {

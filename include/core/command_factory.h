@@ -4,10 +4,12 @@
 #define PIXALYZE_COMMAND_FACTORY_H
 
 #include "commands/command.h"
+#include "commands/command_trie.h"
 #include <deque>
 #include <string>
 
 class ImageManager;
+class CommandTrie;
 
 /**
  * CommandFactory class allows creation of command
@@ -21,14 +23,15 @@ public:
      * Primary constructor
      * @param im ImageManager against which to operate
      */
-    explicit CommandFactory(ImageManager* im);
+    CommandFactory(ImageManager* im, CommandTrie* ct);
+
+    /**
+    * Register all commands with the CommandTrie
+    */
+    void registerCommands();
 
     /**
      * Takes user input and creates appropriate command
-     * - responsible for:
-     *     - Determining which command is being requested
-     *     - Marshalling command parameters
-     *     - Creating both left and right side of bridge
      * @param input user input string
      * @return command ready for execution
      */
@@ -44,12 +47,18 @@ public:
      * Make a help command
      * @return HelpCommand instance (fully bridged)
      */
-    Command makeHelp(const std::deque<std::string>& params);
+    Command makeHelp();
 
-    Command makeLoad(const std::deque<std::string>& params);
+    /**
+    * Make a help command
+    * @return HelpCommand instance (fully bridged)
+     */
+    Command makeLoad();
 
 private:
     ImageManager* im; // ImageManager against which to execute
+    CommandTrie* ct; // CommandTrie to get commands
+    std::deque<std::string> params;
 };
 
 #endif //PIXALYZE_COMMAND_FACTORY_H

@@ -1,17 +1,13 @@
 // By: Landon Prince (5/10/2024)
 
-#include "core/command_factory.h"
 #include "core/utils.h"
-#include "commands/command.h"
+#include "core/command_factory.h"
 #include "commands/quit_command.h"
 #include "commands/help_command.h"
 #include "commands/load_command.h"
 
-CommandFactory::CommandFactory(ImageManager* im)
-        : im(im) {
-    if (im == nullptr)
-        throw std::runtime_error("ImageManager must be non-null");
-}
+CommandFactory::CommandFactory(ImageManager* im, CommandTrie* ct)
+        : im(im), ct(ct) { registerCommands(); }
 
 size_t split(const std::string& txt, std::deque<std::string>& strs, char ch) {
     size_t pos = txt.find(ch);
@@ -28,36 +24,37 @@ size_t split(const std::string& txt, std::deque<std::string>& strs, char ch) {
     return strs.size();
 }
 
+void CommandFactory::registerCommands() {
+    ct->registerCommand("quit", &QuitCommand::help,
+                        [this]() { return this->makeQuit(); });
+    ct->registerCommand("help", &HelpCommand::help,
+                        [this]() { return this->makeHelp(); });
+    ct->registerCommand("load", &LoadCommand::help,
+                        [this]() { return this->makeLoad(); });
+}
+
 Command CommandFactory::makeCommand(const std::string& input) {
     // separate the command from the input parameters
-    std::deque<std::string> params;
     split(input, params, ' ');
     std::string keyword = strLower(params.front());
     params.pop_front();
 
-    // determine which command to create
-    if (keyword == "quit")
-        return makeQuit();
-    else if (keyword == "help")
-        return makeHelp(params);
-    else if (keyword == "load")
-        return makeLoad(params);
-
-    if (keyword.empty())
-        throw std::logic_error("use quit command to exit...");
-    else
-        throw std::logic_error("unrecognized command: " + keyword);
+    // use command trie to determine which command to create
+    auto factoryFunc = ct->findFactory(keyword);
+    if (factoryFunc) return factoryFunc();
+    else if (keyword.empty()) throw std::logic_error("use quit command to exit...");
+    else throw std::logic_error("unrecognized command: " + keyword);
 }
 
 Command CommandFactory::makeQuit() {
     return Command(new QuitCommand(im));
 }
 
-Command CommandFactory::makeHelp(const std::deque<std::string>& params) {
-    return Command(new HelpCommand(im, params));
+Command CommandFactory::makeHelp() {
+    return Command(new HelpCommand(im, ct, params));
 }
 
-Command CommandFactory::makeLoad(const std::deque<std::string>& params) {
+Command CommandFactory::makeLoad() {
     return Command(new LoadCommand(im, params));
 }
 

@@ -6,7 +6,7 @@
 #include "command_impl.h"
 
 /**
- * Represents a request to upload an image
+ * Represents a request to load in an image
  * @extends CommandImpl
  */
 class LoadCommand final : public CommandImpl {
