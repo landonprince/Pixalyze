@@ -50,10 +50,16 @@ public:
     Command makeHelp();
 
     /**
-    * Make a help command
-    * @return HelpCommand instance (fully bridged)
+     * Make a help command
+     * @return LoadCommand instance (fully bridged)
      */
     Command makeLoad();
+
+    /**
+    * Make a show command
+    * @return ShowCommand instance (fully bridged)
+    */
+    Command makeShow();
 
 private:
     ImageManager* im; // ImageManager against which to execute

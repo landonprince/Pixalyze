@@ -1,7 +1,7 @@
 // By: Landon Prince (5/11/2024)
 
-#ifndef PIXALYZE_LOAD_COMMAND_H
-#define PIXALYZE_LOAD_COMMAND_H
+#ifndef PIXALYZE_SHOW_COMMAND_H
+#define PIXALYZE_SHOW_COMMAND_H
 
 #include "command_impl.h"
 
@@ -9,14 +9,14 @@
  * Represents a request to load in an image
  * @extends CommandImpl
  */
-class LoadCommand final : public CommandImpl {
+class ShowCommand final : public CommandImpl {
 public:
-    LoadCommand() = delete; // only allow factory to create
+    ShowCommand() = delete; // only allow factory to create
 
     // Default destructor, copy-constructor and assignment
-    ~LoadCommand() override = default;
-    LoadCommand(const LoadCommand&) = default;
-    LoadCommand& operator=(const LoadCommand&) = default;
+    ~ShowCommand() override = default;
+    ShowCommand(const ShowCommand&) = default;
+    ShowCommand& operator=(const ShowCommand&) = default;
 
     /**
      * Execute the command
@@ -38,7 +38,8 @@ private:
      * Primary constructor
      * @param im ImageManager against which it executes
      */
-    LoadCommand(ImageManager* im, const std::deque<std::string>& params);
+    explicit ShowCommand(ImageManager* im);
 };
 
-#endif //PIXALYZE_LOAD_COMMAND_H
+
+#endif //PIXALYZE_SHOW_COMMAND_H

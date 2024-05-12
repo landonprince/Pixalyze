@@ -6,8 +6,9 @@ set(ENV{OPENCV_DIR} "C:\\tools\\opencv\\build")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 find_package(OpenCV REQUIRED)
-include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
 
 add_executable(Pixalyze main.cpp
         include/core/command_factory.h
@@ -24,8 +25,8 @@ add_executable(Pixalyze main.cpp
         include/commands/help_command.h
         src/commands/load_command.cpp
         include/commands/load_command.h
-        src/commands/display_command.cpp
-        include/commands/display_command.h
+        src/commands/show_command.cpp
+        include/commands/show_command.h
         src/commands/command_trie.cpp
         include/commands/command_trie.h)
 

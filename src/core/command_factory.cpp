@@ -5,6 +5,7 @@
 #include "commands/quit_command.h"
 #include "commands/help_command.h"
 #include "commands/load_command.h"
+#include "commands/show_command.h"
 
 CommandFactory::CommandFactory(ImageManager* im, CommandTrie* ct)
         : im(im), ct(ct) { registerCommands(); }
@@ -31,6 +32,8 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeHelp(); });
     ct->registerCommand("load", &LoadCommand::help,
                         [this]() { return this->makeLoad(); });
+    ct->registerCommand("show", &LoadCommand::help,
+                        [this]() { return this->makeShow(); });
 }
 
 Command CommandFactory::makeCommand(const std::string& input) {
@@ -58,5 +61,8 @@ Command CommandFactory::makeLoad() {
     return Command(new LoadCommand(im, params));
 }
 
+Command CommandFactory::makeShow() {
+    return Command(new ShowCommand(im));
+}
 
 

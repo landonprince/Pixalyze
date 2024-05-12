@@ -13,9 +13,10 @@ public:
     ImageManager& operator=(const ImageManager&) = delete;
 
     void loadImage(const std::string& filePath);
+    void showImage() const;
 private:
     cv::Mat image;
-
+    std::string imagePath;
 };
 
 #endif //PIXALYZE_IMAGE_MANAGER_H

@@ -2,6 +2,8 @@
 
 #include "core/image_manager.h"
 #include "core/command_factory.h"
+#include <opencv2/core/utils/logger.hpp>
+
 #include <iostream>
 #include <string>
 
@@ -10,6 +12,7 @@
  * Starts the application run loop
  */
 int main() {
+    cv::utils::logging::setLogLevel(cv::utils::logging::LOG_LEVEL_WARNING);
     try {
         ImageManager im;
         CommandTrie ct;
