@@ -10,7 +10,7 @@ bool ShowCommand::execute() {
 }
 
 void ShowCommand::help() {
-    std::cout << "show - displays the currently loaded image\n";
+    std::cout << "show - displays the loaded image\n";
 }
 
 ShowCommand::ShowCommand(ImageManager *im) : CommandImpl(im) {}

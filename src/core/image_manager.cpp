@@ -16,6 +16,15 @@ void ImageManager::loadImage(const std::string& filePath) {
     else {
         std::cout << "image successfully loaded" << std::endl;
     }
+    matSize = image.size();
+    numRows = image.rows;
+    numCols = image.cols;
+    matType = image.type();
+    depthType = image.depth();
+    numChannels = image.channels();
+    stepSize = image.step;
+    elementSize = image.elemSize();
+    totalElements = image.total();
 }
 
 void ImageManager::showImage() const {
@@ -26,5 +35,20 @@ void ImageManager::showImage() const {
         std::cout << "opening " << imagePath << std::endl;
         cv::imshow(imagePath, image);
         cv::waitKey(0);
+    }
+}
+
+void ImageManager::printInfo() const {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    else {
+        std::cout << "Rows: " << numRows << ", Cols: " << numCols << std::endl;
+        std::cout << "Type: " << matType << std::endl;
+        std::cout << "Depth: " << depthType << std::endl;
+        std::cout << "Channels: " << numChannels << std::endl;
+        std::cout << "Step: " << stepSize << " bytes" << std::endl;
+        std::cout << "Element Size: " << elementSize << " bytes" << std::endl;
+        std::cout << "Total Elements: " << totalElements << std::endl;
     }
 }

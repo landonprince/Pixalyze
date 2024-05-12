@@ -61,6 +61,12 @@ public:
     */
     Command makeShow();
 
+    /**
+    * Make a analyze command
+    * @return AnalyzeCommand instance (fully bridged)
+    */
+    Command makeAnalyze();
+
 private:
     ImageManager* im; // ImageManager against which to execute
     CommandTrie* ct; // CommandTrie to get commands
