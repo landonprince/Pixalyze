@@ -1,7 +1,7 @@
 # Pixalyze 
 > Real-time image analysis & processing application
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Description
 Pixalyze is an easy-to-use _command-line application_. It allows for the use of an evergrowing collection of commands to analyze and process images.
