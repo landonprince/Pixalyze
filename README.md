@@ -19,9 +19,7 @@ This application primarily utilizes the OpenCV library to rapidly parse and mani
 - ### Install Chocolatey library manager
   - Run Powershell as administrator and run the following command:
   - ```
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol =
-    [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).
-    DownloadString('https://community.chocolatey.org/install.ps1'))
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 - ### Install OpenCV library
   - Run Powershell as administrator and run the following command:
   - ```
