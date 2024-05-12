@@ -24,7 +24,7 @@ This application primarily utilizes the OpenCV library to rapidly parse and mani
   - Run Powershell as administrator and run the following command:
   - ```
     choco install opencv   
-- ### Set up environment variables
+- ### Set up system & environment variables
   - Open 'Environment Variables,' and add the following system variables:
   - ```
     OPENCV_DIR           | C:\tools\opencv\build\x64\vc14\lib
@@ -32,6 +32,6 @@ This application primarily utilizes the OpenCV library to rapidly parse and mani
     OPENCV_LINK_LIBS     | opencv_world460
     OPENCV_LINK_PATHS    | C:\tools\opencv\build\x64\vc15\lib
     OPENCV_PATH          | C:\tools\opencv
-  - Double-click on 'PATH' and add the following: 
+  - Double-click on 'PATH' and add the following environment variable: 
   - ```
     User Variables / Path / C:\tools\opencv\build\x64\vc15\bin
