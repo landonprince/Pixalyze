@@ -79,6 +79,12 @@ public:
     */
     Command makeColor();
 
+    /**
+    * Make a save command
+    * @return SaveCommand instance (fully bridged)
+    */
+    Command makeSave();
+
 private:
     ImageManager* im; // ImageManager against which to execute
     CommandTrie* ct; // CommandTrie to get commands

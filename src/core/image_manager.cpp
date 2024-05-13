@@ -74,3 +74,17 @@ void ImageManager::toColor() {
         std::cout << "converted " + imageName << " to color" << std::endl;
     }
 }
+
+void ImageManager::saveImage() {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    std::string outFile = "pix_" + imageName;
+    if (cv::imwrite(outFile, image)) {
+        std::cout << "image saved to " + outFile << std::endl;
+    }
+    else {
+        throw std::logic_error("failed to save image");
+    }
+
+}

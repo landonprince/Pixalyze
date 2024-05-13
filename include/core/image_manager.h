@@ -17,6 +17,8 @@ public:
     void printInfo() const;
     void toGray();
     void toColor();
+    void saveImage();
+
 private:
     cv::Mat image;
     std::string imagePath;
