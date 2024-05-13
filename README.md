@@ -35,3 +35,6 @@ This application primarily utilizes the OpenCV library to rapidly parse and mani
   - Double-click on 'PATH' and add the following environment variable: 
   - ```
     User Variables / Path / C:\tools\opencv\build\x64\vc15\bin
+
+## Command Structure
+![UML Diagram](umldiagram.png)
