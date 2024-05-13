@@ -18,6 +18,7 @@ public:
     void toGray();
     void toColor();
     void saveImage();
+    void findEdges();
 
 private:
     cv::Mat image;

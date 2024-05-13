@@ -86,5 +86,11 @@ void ImageManager::saveImage() {
     else {
         throw std::logic_error("failed to save image");
     }
+}
 
+void ImageManager::findEdges() {
+    if (image.channels() != 1) {
+        cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
+    }
+    cv::Canny(image, image, 50, 150, 3);
 }
