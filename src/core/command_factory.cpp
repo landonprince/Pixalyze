@@ -10,6 +10,7 @@
 #include "commands/grayscale_command.h"
 #include "commands/color_command.h"
 #include "commands/save_command.h"
+#include "commands/edges_command.h"
 
 CommandFactory::CommandFactory(ImageManager* im, CommandTrie* ct)
         : im(im), ct(ct) { registerCommands(); }
@@ -46,6 +47,8 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeColor(); });
     ct->registerCommand("save", &SaveCommand::help,
                         [this]() { return this->makeSave(); });
+    ct->registerCommand("edges", &EdgesCommand::help,
+                        [this]() { return this->makeEdges(); });
 }
 
 Command CommandFactory::makeCommand(const std::string& input) {
@@ -91,4 +94,8 @@ Command CommandFactory::makeColor() {
 
 Command CommandFactory::makeSave() {
     return Command(new SaveCommand(im));
+}
+
+Command CommandFactory::makeEdges() {
+    return Command(new EdgesCommand(im));
 }

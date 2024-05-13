@@ -89,8 +89,12 @@ void ImageManager::saveImage() {
 }
 
 void ImageManager::findEdges() {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
     if (image.channels() != 1) {
         cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
     }
     cv::Canny(image, image, 50, 150, 3);
+    std::cout << "edge detection successful" << std::endl;
 }

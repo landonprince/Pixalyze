@@ -85,6 +85,12 @@ public:
     */
     Command makeSave();
 
+    /**
+    * Make a edges command
+    * @return EdgesCommand instance (fully bridged)
+    */
+    Command makeEdges();
+
 private:
     ImageManager* im; // ImageManager against which to execute
     CommandTrie* ct; // CommandTrie to get commands

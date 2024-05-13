@@ -1,22 +1,22 @@
-// By: Landon Prince (5/11/2024)
+// By: Landon Prince (5/13/2024)
 
-#ifndef PIXALYZE_SHOW_COMMAND_H
-#define PIXALYZE_SHOW_COMMAND_H
+#ifndef PIXALYZE_EDGES_COMMAND_H
+#define PIXALYZE_EDGES_COMMAND_H
 
 #include "command_impl.h"
 
 /**
- * Represents a request to display a loaded image
+ * Represents a request to detect edges in a loaded image
  * @extends CommandImpl
  */
-class ShowCommand final : public CommandImpl {
+class EdgesCommand final : public CommandImpl {
 public:
-    ShowCommand() = delete; // only allow factory to create
+    EdgesCommand() = delete; // only allow factory to create
 
     // Default destructor, copy-constructor and assignment
-    ~ShowCommand() override = default;
-    ShowCommand(const ShowCommand&) = default;
-    ShowCommand& operator=(const ShowCommand&) = default;
+    ~EdgesCommand() override = default;
+    EdgesCommand(const EdgesCommand&) = default;
+    EdgesCommand& operator=(const EdgesCommand&) = default;
 
     /**
      * Execute the command
@@ -36,7 +36,7 @@ private:
      * Primary constructor
      * @param im ImageManager against which it executes
      */
-    explicit ShowCommand(ImageManager* im);
+    explicit EdgesCommand(ImageManager* im);
 };
 
-#endif //PIXALYZE_SHOW_COMMAND_H
+#endif //PIXALYZE_EDGES_COMMAND_H

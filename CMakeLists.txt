@@ -36,7 +36,9 @@ add_executable(Pixalyze main.cpp
         src/commands/color_command.cpp
         include/commands/color_command.h
         src/commands/save_command.cpp
-        include/commands/save_command.h)
+        include/commands/save_command.h
+        src/commands/edges_command.cpp
+        include/commands/edges_command.h)
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
 
