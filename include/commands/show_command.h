@@ -6,7 +6,7 @@
 #include "command_impl.h"
 
 /**
- * Represents a request to load in an image
+ * Represents a request to display a loaded image
  * @extends CommandImpl
  */
 class ShowCommand final : public CommandImpl {
@@ -32,8 +32,6 @@ public:
     friend class CommandFactory; // to enable command creation
 
 private:
-    std::string imagePath;
-
     /**
      * Primary constructor
      * @param im ImageManager against which it executes

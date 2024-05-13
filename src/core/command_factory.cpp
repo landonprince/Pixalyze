@@ -7,6 +7,8 @@
 #include "commands/load_command.h"
 #include "commands/show_command.h"
 #include "commands/analyze_command.h"
+#include "commands/grayscale_command.h"
+#include "commands/color_command.h"
 
 CommandFactory::CommandFactory(ImageManager* im, CommandTrie* ct)
         : im(im), ct(ct) { registerCommands(); }
@@ -37,6 +39,10 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeShow(); });
     ct->registerCommand("analyze", &AnalyzeCommand::help,
                         [this]() { return this->makeAnalyze(); });
+    ct->registerCommand("grayscale", &GrayscaleCommand::help,
+                        [this]() { return this->makeGrayscale(); });
+    ct->registerCommand("color", &ColorCommand::help,
+                        [this]() { return this->makeColor(); });
 }
 
 Command CommandFactory::makeCommand(const std::string& input) {
@@ -72,3 +78,10 @@ Command CommandFactory::makeAnalyze() {
     return Command(new AnalyzeCommand(im));
 }
 
+Command CommandFactory::makeGrayscale() {
+    return Command(new GrayscaleCommand(im));
+}
+
+Command CommandFactory::makeColor() {
+    return Command(new ColorCommand(im));
+}

@@ -30,7 +30,11 @@ add_executable(Pixalyze main.cpp
         src/commands/command_trie.cpp
         include/commands/command_trie.h
         src/commands/analyze_command.cpp
-        include/commands/analyze_command.h)
+        include/commands/analyze_command.h
+        src/commands/grayscale_command.cpp
+        include/commands/grayscale_command.h
+        src/commands/color_command.cpp
+        include/commands/color_command.h)
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
 

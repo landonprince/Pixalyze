@@ -1,22 +1,22 @@
 // By: Landon Prince (5/12/2024)
 
-#ifndef PIXALYZE_ANALYZE_COMMAND_H
-#define PIXALYZE_ANALYZE_COMMAND_H
+#ifndef PIXALYZE_GRAYSCALE_COMMAND_H
+#define PIXALYZE_GRAYSCALE_COMMAND_H
 
 #include "command_impl.h"
 
 /**
- * Represents a request to load in an image
+ * Represents a request to turn a loaded image to grayscale
  * @extends CommandImpl
  */
-class AnalyzeCommand final : public CommandImpl {
+class GrayscaleCommand final : public CommandImpl {
 public:
-    AnalyzeCommand() = delete; // only allow factory to create
+    GrayscaleCommand() = delete; // only allow factory to create
 
     // Default destructor, copy-constructor and assignment
-    ~AnalyzeCommand() override = default;
-    AnalyzeCommand(const AnalyzeCommand&) = default;
-    AnalyzeCommand& operator=(const AnalyzeCommand&) = default;
+    ~GrayscaleCommand() override = default;
+    GrayscaleCommand(const GrayscaleCommand&) = default;
+    GrayscaleCommand& operator=(const GrayscaleCommand&) = default;
 
     /**
      * Execute the command
@@ -32,13 +32,11 @@ public:
     friend class CommandFactory; // to enable command creation
 
 private:
-    std::string imagePath;
-
     /**
      * Primary constructor
      * @param im ImageManager against which it executes
      */
-    explicit AnalyzeCommand(ImageManager* im);
+    explicit GrayscaleCommand(ImageManager* im);
 };
 
-#endif //PIXALYZE_ANALYZE_COMMAND_H
+#endif //PIXALYZE_GRAYSCALE_COMMAND_H

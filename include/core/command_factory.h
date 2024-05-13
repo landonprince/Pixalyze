@@ -67,6 +67,18 @@ public:
     */
     Command makeAnalyze();
 
+    /**
+    * Make a grayscale command
+    * @return GrayscaleCommand instance (fully bridged)
+    */
+    Command makeGrayscale();
+
+    /**
+    * Make a color command
+    * @return ColorCommand instance (fully bridged)
+    */
+    Command makeColor();
+
 private:
     ImageManager* im; // ImageManager against which to execute
     CommandTrie* ct; // CommandTrie to get commands

@@ -2,29 +2,24 @@
 
 #include "core/image_manager.h"
 #include <opencv2/highgui/highgui.hpp>
+#include <filesystem>
 
 void ImageManager::loadImage(const std::string& filePath) {
     imagePath = filePath;
     try {
-        image = cv::imread(filePath);
-    } catch (std::exception& e) {
+        image = cv::imread(filePath, cv::IMREAD_UNCHANGED);
+    } catch (std::exception &e) {
         std::cout << "failed to load image: " << e.what() << std::endl;
     }
     if (image.empty()) {
         std::cout << "failed to load image" << std::endl;
-    }
-    else {
+    } else {
         std::cout << "image successfully loaded" << std::endl;
     }
-    matSize = image.size();
-    numRows = image.rows;
-    numCols = image.cols;
-    matType = image.type();
-    depthType = image.depth();
-    numChannels = image.channels();
-    stepSize = image.step;
-    elementSize = image.elemSize();
-    totalElements = image.total();
+    size_t pos = imagePath.find_last_of("\\/");
+    if (pos != std::string::npos) {
+        imageName = imagePath.substr(pos + 1);
+    }
 }
 
 void ImageManager::showImage() const {
@@ -32,7 +27,7 @@ void ImageManager::showImage() const {
         throw std::logic_error("no image loaded");
     }
     else {
-        std::cout << "opening " << imagePath << std::endl;
+        std::cout << "opening " << imageName << std::endl;
         cv::imshow(imagePath, image);
         cv::waitKey(0);
     }
@@ -43,12 +38,39 @@ void ImageManager::printInfo() const {
         throw std::logic_error("no image loaded");
     }
     else {
-        std::cout << "Rows: " << numRows << ", Cols: " << numCols << std::endl;
-        std::cout << "Type: " << matType << std::endl;
-        std::cout << "Depth: " << depthType << std::endl;
-        std::cout << "Channels: " << numChannels << std::endl;
-        std::cout << "Step: " << stepSize << " bytes" << std::endl;
-        std::cout << "Element Size: " << elementSize << " bytes" << std::endl;
-        std::cout << "Total Elements: " << totalElements << std::endl;
+        std::cout << "Size: " << image.size() << std::endl;
+        std::cout << "Rows: " << image.rows << ", Cols: " << image.cols << std::endl;
+        std::cout << "Type: " << image.type() << std::endl;
+        std::cout << "Depth: " << image.depth() << std::endl;
+        std::cout << "Channels: " <<  image.channels() << std::endl;
+        std::cout << "Step: " << image.step << " bytes" << std::endl;
+        std::cout << "Element Size: " << image.elemSize() << " bytes" << std::endl;
+        std::cout << "Total Elements: " << image.total() << std::endl;
+    }
+}
+
+void ImageManager::toGray() {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    else if (image.channels() == 1) {
+        throw std::logic_error("image is already in grayscale");
+    }
+    else {
+        cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
+        std::cout << "converted " + imageName << " to grayscale" << std::endl;
+    }
+}
+
+void ImageManager::toColor() {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    else if (image.channels() == 3) {
+        throw std::logic_error("image is already in color");
+    }
+    else {
+        cv::cvtColor(image, image, cv::COLOR_GRAY2BGR);
+        std::cout << "converted " + imageName << " to color" << std::endl;
     }
 }

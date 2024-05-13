@@ -3,7 +3,6 @@
 #include "core/image_manager.h"
 #include "core/command_factory.h"
 #include <opencv2/core/utils/logger.hpp>
-
 #include <iostream>
 #include <string>
 
@@ -12,7 +11,8 @@
  * Starts the application run loop
  */
 int main() {
-    cv::utils::logging::setLogLevel(cv::utils::logging::LOG_LEVEL_WARNING);
+    cv::utils::logging::setLogLevel(
+            cv::utils::logging::LOG_LEVEL_WARNING);
     try {
         ImageManager im;
         CommandTrie ct;
@@ -29,11 +29,11 @@ int main() {
             try {
                 Command cmd = factory.makeCommand(input);
                 runLoopFlag = cmd.execute();
-            } catch (std::exception& e) {
-                std::cout << "command error: " << e.what() << std::endl;
+            } catch (std::exception& ex) {
+                std::cout << "command error: " << ex.what() << std::endl;
             }
         }
-    } catch (std::exception& e) {
-        std::cout << "startup error: " << e.what() << std::endl;
+    } catch (std::exception& ex) {
+        std::cout << "startup error: " << ex.what() << std::endl;
     }
 }
