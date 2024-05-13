@@ -11,6 +11,7 @@
 #include "commands/color_command.h"
 #include "commands/save_command.h"
 #include "commands/edges_command.h"
+#include "commands/ascii_command.h"
 
 CommandFactory::CommandFactory(ImageManager* im, CommandTrie* ct)
         : im(im), ct(ct) { registerCommands(); }
@@ -49,6 +50,8 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeSave(); });
     ct->registerCommand("edges", &EdgesCommand::help,
                         [this]() { return this->makeEdges(); });
+    ct->registerCommand("ascii", &AsciiCommand::help,
+                        [this]() { return this->makeAscii(); });
 }
 
 Command CommandFactory::makeCommand(const std::string& input) {
@@ -98,4 +101,8 @@ Command CommandFactory::makeSave() {
 
 Command CommandFactory::makeEdges() {
     return Command(new EdgesCommand(im));
+}
+
+Command CommandFactory::makeAscii() {
+    return Command(new AsciiCommand(im));
 }

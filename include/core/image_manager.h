@@ -17,7 +17,8 @@ public:
     void printInfo() const;
     void toGray();
     void toColor();
-    void saveImage();
+    void saveImage() const;
+    void saveASCII() const;
     void findEdges();
 
 private:

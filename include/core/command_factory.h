@@ -91,6 +91,12 @@ public:
     */
     Command makeEdges();
 
+    /**
+    * Make a ascii command
+    * @return AsciiCommand instance (fully bridged)
+    */
+    Command makeAscii();
+
 private:
     ImageManager* im; // ImageManager against which to execute
     CommandTrie* ct; // CommandTrie to get commands

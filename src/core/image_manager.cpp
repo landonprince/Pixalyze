@@ -3,6 +3,7 @@
 #include "core/image_manager.h"
 #include <opencv2/highgui/highgui.hpp>
 #include <filesystem>
+#include <fstream>
 
 void ImageManager::loadImage(const std::string& filePath) {
     imagePath = filePath;
@@ -75,7 +76,51 @@ void ImageManager::toColor() {
     }
 }
 
-void ImageManager::saveImage() {
+void ImageManager::findEdges() {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    if (image.channels() != 1) {
+        cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
+    }
+    cv::Canny(image, image, 50, 150, 3);
+    std::cout << "edge detection successful" << std::endl;
+}
+
+void ImageManager::saveASCII() const {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    if (image.channels() != 1) {
+        cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
+    }
+    const char *levels = "@%#*+=-:. ";
+    size_t scale = 255 / (strlen(levels) - 1);
+    std::string ascii;
+
+    for (int i = 0; i < image.rows; i++) {
+        for (int j = 0; j < image.cols; j++) {
+            auto brightness = image.at<uchar>(i, j);
+            char ascii_char = levels[brightness / scale];
+            ascii += ascii_char;
+        }
+        ascii += '\n';
+    }
+    if (!ascii.empty()) {
+        std::ofstream file("ascii_" + imageName + ".txt");
+        if (file.is_open()) {
+            file << ascii;
+            file.close();
+            std::cout << "ASCII art has been saved to ascii_" << imageName
+            << ".txt" << std::endl;
+        } else {
+            throw std::logic_error("failed to convert image to ASCII");
+        }
+
+    }
+}
+
+void ImageManager::saveImage() const {
     if (image.empty()) {
         throw std::logic_error("no image loaded");
     }
@@ -88,13 +133,3 @@ void ImageManager::saveImage() {
     }
 }
 
-void ImageManager::findEdges() {
-    if (image.empty()) {
-        throw std::logic_error("no image loaded");
-    }
-    if (image.channels() != 1) {
-        cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
-    }
-    cv::Canny(image, image, 50, 150, 3);
-    std::cout << "edge detection successful" << std::endl;
-}
