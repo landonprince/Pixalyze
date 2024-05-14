@@ -22,6 +22,8 @@ public:
     void findEdges();
     void blurImage();
     void smoothImage(int intensity);
+    void addText(const std::string& text, const std::string& color, double fontSize);
+
 
 private:
     cv::Mat image;

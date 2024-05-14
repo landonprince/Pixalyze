@@ -44,7 +44,10 @@ add_executable(Pixalyze main.cpp
         src/commands/blur_command.cpp
         include/commands/blur_command.h
         src/commands/smooth_command.cpp
-        include/commands/smooth_command.h)
+        include/commands/smooth_command.h
+        src/commands/text_command.cpp
+        include/commands/text_command.h
+        src/core/utils.cpp)
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
 

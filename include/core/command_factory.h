@@ -109,10 +109,16 @@ public:
     */
     Command makeSmooth();
 
+    /**
+    * Make a smooth command
+    * @return SmoothCommand instance (fully bridged)
+    */
+    Command makeText();
+
 private:
     ImageManager* im; // ImageManager against which to execute
     CommandTrie* ct; // CommandTrie to get commands
-    std::deque<std::string> params;
+    std::deque<std::string> params; // command parameters
 };
 
 #endif //PIXALYZE_COMMAND_FACTORY_H

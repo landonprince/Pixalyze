@@ -30,7 +30,7 @@ HelpCommand::HelpCommand(ImageManager* im, CommandTrie* ct, const std::deque<std
     if (params.size() > 1)
         throw std::length_error("invalid number of parameters (0 or 1)");
     if (!params.empty())
-        commandName = strLower(params.front());
+        commandName = Utils::strLower(params.front());
 }
 
 

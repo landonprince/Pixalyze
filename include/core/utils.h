@@ -9,27 +9,33 @@
 #include <fstream>
 #include <opencv2/opencv.hpp>
 
-/**
- * Transform a std::string to all lowercase characters
- * @param s input string to transform
- * @return std::string with lowercase characters
- */
-inline std::string strLower(std::string s) {
-    std::transform(
-            s.begin(), s.end(), s.begin(),
-            [](unsigned char c) { return std::tolower(c); }
-    );
-    return s;
-}
+class Utils final {
+public:
+    Utils() = delete;
+    ~Utils() = delete;
+    Utils(const Utils&) = delete;
+    Utils& operator=(const Utils&) = delete;
 
-inline bool isSupported(const std::string &filename) {
-    const std::set<std::string> supportedExtensions = {
-            ".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp", ".jp2"
-    };
-    std::string extension = std::filesystem::path(filename).extension().string();
-    std::transform(extension.begin(), extension.end(), extension.begin(),
-                   [](unsigned char c) { return std::tolower(c); });
-    return supportedExtensions.find(extension) != supportedExtensions.end();
-}
+   /**
+    * Transform a std::string to all lowercase characters
+    * @param s input string to transform
+    * @return std::string with lowercase characters
+    */
+    static std::string strLower(std::string s);
+
+   /**
+    * determines if a file has a supported extension type
+    * @param filename name of file with extension
+    * @return true if supported, false otherwise
+    */
+    static bool isSupported(const std::string &filename);
+
+    static cv::Scalar getColorScalar(const std::string& colorName);
+
+    static const std::map<std::string, cv::Scalar>& getColorMap();
+
+private:
+    static const std::map<std::string, cv::Scalar> colorMap; // color map
+};
 
 #endif //PIXALYZE_UTILS_H

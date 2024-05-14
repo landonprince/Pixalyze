@@ -14,6 +14,7 @@
 #include "commands/ascii_command.h"
 #include "commands/blur_command.h"
 #include "commands/smooth_command.h"
+#include "commands/text_command.h"
 
 CommandFactory::CommandFactory(ImageManager* im, CommandTrie* ct)
         : im(im), ct(ct) { registerCommands(); }
@@ -58,12 +59,14 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeBlur(); });
     ct->registerCommand("smooth", &SmoothCommand::help,
                         [this]() { return this->makeSmooth(); });
+    ct->registerCommand("text", &TextCommand::help,
+                        [this]() { return this->makeText(); });
 }
 
 Command CommandFactory::makeCommand(const std::string& input) {
     // separate the command from the input parameters
     split(input, params, ' ');
-    std::string keyword = strLower(params.front());
+    std::string keyword = Utils::strLower(params.front());
     params.pop_front();
 
     // use command trie to determine which command to create
@@ -119,4 +122,8 @@ Command CommandFactory::makeBlur() {
 
 Command CommandFactory::makeSmooth() {
     return Command(new SmoothCommand(im, params));
+}
+
+Command CommandFactory::makeText() {
+    return Command(new TextCommand(im, params));
 }

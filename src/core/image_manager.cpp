@@ -1,5 +1,6 @@
 // By: Landon Prince (5/10/2024)
 
+#include "core\utils.h"
 #include "core/image_manager.h"
 #include <opencv2/highgui/highgui.hpp>
 #include <filesystem>
@@ -157,4 +158,16 @@ void ImageManager::smoothImage(int intensity) {
         cv::GaussianBlur(image, image, cv::Size(9, 9), 7);
         std::cout << "image successfully smoothed (intensity 3)" << std::endl;
     }
+}
+
+void ImageManager::addText(const std::string& text, const std::string& color, double fontSize) {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    cv::Scalar colorScalar = Utils::getColorScalar(color);
+    cv::Point textOrg(50,50);
+    cv::putText(image, text, textOrg, cv::FONT_HERSHEY_SIMPLEX,
+                fontSize, colorScalar, 50);
+    std::cout << "successfully added text to image" << std::endl;
+
 }

@@ -23,7 +23,7 @@ LoadCommand::LoadCommand(ImageManager* im, const std::deque<std::string>& params
     if (!std::filesystem::exists(imagePath)) {
         throw std::invalid_argument("image file not found");
     }
-    if (!isSupported(imagePath)) {
+    if (!Utils::isSupported(imagePath)) {
         throw std::invalid_argument("image type not supported");
     }
 }
