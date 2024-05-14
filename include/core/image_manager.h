@@ -20,6 +20,8 @@ public:
     void saveImage() const;
     void saveASCII() const;
     void findEdges();
+    void blurImage();
+    void smoothImage(int intensity);
 
 private:
     cv::Mat image;

@@ -40,7 +40,11 @@ add_executable(Pixalyze main.cpp
         src/commands/edges_command.cpp
         include/commands/edges_command.h
         src/commands/ascii_command.cpp
-        include/commands/ascii_command.h)
+        include/commands/ascii_command.h
+        src/commands/blur_command.cpp
+        include/commands/blur_command.h
+        src/commands/smooth_command.cpp
+        include/commands/smooth_command.h)
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
 

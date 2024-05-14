@@ -97,6 +97,18 @@ public:
     */
     Command makeAscii();
 
+    /**
+    * Make a blur command
+    * @return BlurCommand instance (fully bridged)
+    */
+    Command makeBlur();
+
+    /**
+    * Make a smooth command
+    * @return SmoothCommand instance (fully bridged)
+    */
+    Command makeSmooth();
+
 private:
     ImageManager* im; // ImageManager against which to execute
     CommandTrie* ct; // CommandTrie to get commands

@@ -12,6 +12,8 @@
 #include "commands/save_command.h"
 #include "commands/edges_command.h"
 #include "commands/ascii_command.h"
+#include "commands/blur_command.h"
+#include "commands/smooth_command.h"
 
 CommandFactory::CommandFactory(ImageManager* im, CommandTrie* ct)
         : im(im), ct(ct) { registerCommands(); }
@@ -52,6 +54,10 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeEdges(); });
     ct->registerCommand("ascii", &AsciiCommand::help,
                         [this]() { return this->makeAscii(); });
+    ct->registerCommand("blur", &BlurCommand::help,
+                        [this]() { return this->makeBlur(); });
+    ct->registerCommand("smooth", &SmoothCommand::help,
+                        [this]() { return this->makeSmooth(); });
 }
 
 Command CommandFactory::makeCommand(const std::string& input) {
@@ -105,4 +111,12 @@ Command CommandFactory::makeEdges() {
 
 Command CommandFactory::makeAscii() {
     return Command(new AsciiCommand(im));
+}
+
+Command CommandFactory::makeBlur() {
+    return Command(new BlurCommand(im));
+}
+
+Command CommandFactory::makeSmooth() {
+    return Command(new SmoothCommand(im, params));
 }

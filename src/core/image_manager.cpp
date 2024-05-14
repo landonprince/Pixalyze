@@ -133,3 +133,28 @@ void ImageManager::saveImage() const {
     }
 }
 
+void ImageManager::blurImage() {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    cv::GaussianBlur(image, image, cv::Size(27, 27), 25);
+    std::cout << "image successfully blurred" << std::endl;
+}
+
+void ImageManager::smoothImage(int intensity) {
+    if (image.empty()) {
+        throw std::logic_error("no image loaded");
+    }
+    if (intensity == 1) {
+        cv::GaussianBlur(image, image, cv::Size(5, 5), 3);
+        std::cout << "image successfully smoothed (intensity 1)" << std::endl;
+    }
+    else if (intensity == 2) {
+        cv::GaussianBlur(image, image, cv::Size(7, 7), 5);
+        std::cout << "image successfully smoothed (intensity 2)" << std::endl;
+    }
+    else if (intensity == 3) {
+        cv::GaussianBlur(image, image, cv::Size(9, 9), 7);
+        std::cout << "image successfully smoothed (intensity 3)" << std::endl;
+    }
+}
