@@ -3,7 +3,6 @@
 #include "core\utils.h"
 #include "core/image_manager.h"
 #include <opencv2/highgui/highgui.hpp>
-#include <filesystem>
 #include <fstream>
 
 void ImageManager::loadImage(const std::string& filePath) {
@@ -16,7 +15,9 @@ void ImageManager::loadImage(const std::string& filePath) {
     if (image.empty()) {
         std::cout << "failed to load image" << std::endl;
     } else {
-        std::cout << "image successfully loaded" << std::endl;
+        Utils::addSeparator();
+        std::cout << "\033[1;32m" << "image successfully loaded" << "\033[0m" << std::endl;
+        Utils::addSeparator();
     }
     size_t pos = imagePath.find_last_of("\\/");
     if (pos != std::string::npos) {
@@ -29,7 +30,9 @@ void ImageManager::showImage() const {
         throw std::logic_error("no image loaded");
     }
     else {
-        std::cout << "opening " << imageName << std::endl;
+        Utils::addSeparator();
+        std::cout << "\033[1;32m" << "opening" << imageName << "\033[0m" << std::endl;
+        Utils::addSeparator();
         cv::imshow(imagePath, image);
         cv::waitKey(0);
     }
@@ -60,7 +63,10 @@ void ImageManager::toGray() {
     }
     else {
         cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
-        std::cout << "converted " + imageName << " to grayscale" << std::endl;
+        Utils::addSeparator();
+        std::cout << "\033[1;32m" << "converted " + imageName <<
+        " to grayscale" << "\033[0m" << std::endl;
+        Utils::addSeparator();
     }
 }
 
@@ -73,7 +79,10 @@ void ImageManager::toColor() {
     }
     else {
         cv::cvtColor(image, image, cv::COLOR_GRAY2BGR);
-        std::cout << "converted " + imageName << " to color" << std::endl;
+        Utils::addSeparator();
+        std::cout << "\033[1;32m" << "converted " + imageName << " to color"
+        << "\033[0m" << std::endl;
+        Utils::addSeparator();
     }
 }
 
@@ -85,7 +94,9 @@ void ImageManager::findEdges() {
         cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
     }
     cv::Canny(image, image, 50, 150, 3);
-    std::cout << "edge detection successful" << std::endl;
+    Utils::addSeparator();
+    std::cout << "\033[1;32m" << "edge detection successful" << "\033[0m" << std::endl;
+    Utils::addSeparator();
 }
 
 void ImageManager::saveASCII() const {
@@ -112,8 +123,10 @@ void ImageManager::saveASCII() const {
         if (file.is_open()) {
             file << ascii;
             file.close();
-            std::cout << "ASCII art has been saved to ascii_" << imageName
-            << ".txt" << std::endl;
+            Utils::addSeparator();
+            std::cout << "\033[1;32m" << "ASCII art has been saved to ascii_" << imageName
+            << ".txt" << "\033[0m" << std::endl;
+            Utils::addSeparator();
         } else {
             throw std::logic_error("failed to convert image to ASCII");
         }
@@ -127,7 +140,9 @@ void ImageManager::saveImage() const {
     }
     std::string outFile = "pix_" + imageName;
     if (cv::imwrite(outFile, image)) {
-        std::cout << "image saved to " + outFile << std::endl;
+        Utils::addSeparator();
+        std::cout << "\033[1;32m" << "image saved to " + outFile << "\033[0m" << std::endl;
+        Utils::addSeparator();
     }
     else {
         throw std::logic_error("failed to save image");
@@ -139,25 +154,32 @@ void ImageManager::blurImage() {
         throw std::logic_error("no image loaded");
     }
     cv::GaussianBlur(image, image, cv::Size(27, 27), 25);
-    std::cout << "image successfully blurred" << std::endl;
+    Utils::addSeparator();
+    std::cout << "\033[1;32m" << "image successfully blurred" << "\033[0m" << std::endl;
+    Utils::addSeparator();
 }
 
 void ImageManager::smoothImage(int intensity) {
     if (image.empty()) {
         throw std::logic_error("no image loaded");
     }
+    Utils::addSeparator();
     if (intensity == 1) {
         cv::GaussianBlur(image, image, cv::Size(5, 5), 3);
-        std::cout << "image successfully smoothed (intensity 1)" << std::endl;
+        std::cout << "\033[1;32m" << "image successfully smoothed (intensity 1)" << "\033[0m"
+        << std::endl;
     }
     else if (intensity == 2) {
         cv::GaussianBlur(image, image, cv::Size(7, 7), 5);
-        std::cout << "image successfully smoothed (intensity 2)" << std::endl;
+        std::cout << "\033[1;32m" << "image successfully smoothed (intensity 2)" << "\033[0m"
+        << std::endl;
     }
     else if (intensity == 3) {
         cv::GaussianBlur(image, image, cv::Size(9, 9), 7);
-        std::cout << "image successfully smoothed (intensity 3)" << std::endl;
+        std::cout << "\033[1;32m" << "image successfully smoothed (intensity 3)" << "\033[0m"
+        << std::endl;
     }
+    Utils::addSeparator();
 }
 
 void ImageManager::addText(const std::string& text, const std::string& color, double fontSize) {
@@ -165,9 +187,13 @@ void ImageManager::addText(const std::string& text, const std::string& color, do
         throw std::logic_error("no image loaded");
     }
     cv::Scalar colorScalar = Utils::getColorScalar(color);
-    cv::Point textOrg(50,50);
-    cv::putText(image, text, textOrg, cv::FONT_HERSHEY_SIMPLEX,
-                fontSize, colorScalar, 50);
-    std::cout << "successfully added text to image" << std::endl;
-
+    int fontFace = cv::FONT_HERSHEY_SIMPLEX;
+    double fontScale = fontSize / 10.0;
+    int thickness = 2;
+    int baseline = 0;
+    cv::Point textOrg(10, image.rows - baseline - 10);
+    cv::putText(image, text, textOrg, fontFace, fontScale, colorScalar, thickness);
+    Utils::addSeparator();
+    std::cout << "\033[1;32m" << "successfully added text to image" << "\033[0m" << std::endl;
+    Utils::addSeparator();
 }

@@ -1,6 +1,8 @@
 // By: Landon Prince (5/10/2024)
 
 #include "commands/command_trie.h"
+#include <iostream>
+#include <iomanip>
 
 CommandTrie::CommandTrie() : root(std::make_shared<CommandNode>()) {}
 
@@ -40,5 +42,18 @@ const std::set<std::string>& CommandTrie::getCommands() const {
     return commands;
 }
 
-
+void CommandTrie::printCommands() const {
+    const int columnWidth = 20;
+    int count = 0;
+    for (const auto& command : commands) {
+        std::cout << std::setw(columnWidth) << std::left << command;
+        count++;
+        if (count % 4 == 0) {
+            std::cout << std::endl;
+        }
+    }
+    if (count % 4 != 0) {
+        std::cout << std::endl;
+    }
+}
 

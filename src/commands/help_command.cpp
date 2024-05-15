@@ -7,10 +7,12 @@
 bool HelpCommand::execute()
 {
     if (commandName.empty()) {
-        std::cout << "Available commands:\n";
-        for (const auto& command : ct->getCommands()) {
-            std::cout << command << std::endl;
-        }
+        Utils::addSeparator();
+        std::cout << "Available commands [" << ct->getCommands().size() << "]:\n" << std::endl;
+        ct->printCommands();
+        Utils::addSeparator();
+        std::cout << "Enter 'help [command]' for information on a specific command" << std::endl;
+        Utils::addSeparator();
     } else {
         auto helpFunc = ct->findHelp(commandName);
         if (helpFunc) helpFunc();

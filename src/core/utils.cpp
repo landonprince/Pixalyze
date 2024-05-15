@@ -4,6 +4,7 @@
 #include <string>
 #include <filesystem>
 #include <opencv2/opencv.hpp>
+#include <windows.h>
 
 std::string Utils::strLower(std::string s) {
     std::transform(
@@ -34,6 +35,28 @@ cv::Scalar Utils::getColorScalar(const std::string& colorName) {
 
 const std::map<std::string, cv::Scalar>& Utils::getColorMap() {
     return colorMap;
+}
+
+void Utils::enableVirtualTerminalProcessing() {
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hOut == INVALID_HANDLE_VALUE) {
+        return;
+    }
+
+    DWORD dwMode = 0;
+    if (!GetConsoleMode(hOut, &dwMode)) {
+        return;
+    }
+
+    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+    if (!SetConsoleMode(hOut, dwMode)) {
+        std::cerr << "Failed to set console mode." << std::endl;
+    }
+}
+
+void Utils::addSeparator() {
+    std::cout << "----------------------------------"
+                 "----------------------------------" << std::endl;
 }
 
 const std::map<std::string, cv::Scalar> Utils::colorMap = {

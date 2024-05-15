@@ -56,63 +56,63 @@ public:
     Command makeLoad();
 
     /**
-    * Make a show command
-    * @return ShowCommand instance (fully bridged)
-    */
+     * Make a show command
+     * @return ShowCommand instance (fully bridged)
+     */
     Command makeShow();
 
     /**
-    * Make a analyze command
-    * @return AnalyzeCommand instance (fully bridged)
-    */
+     * Make a analyze command
+     * @return AnalyzeCommand instance (fully bridged)
+     */
     Command makeAnalyze();
 
     /**
-    * Make a grayscale command
-    * @return GrayscaleCommand instance (fully bridged)
-    */
+     * Make a grayscale command
+     * @return GrayscaleCommand instance (fully bridged)
+     */
     Command makeGrayscale();
 
     /**
-    * Make a color command
-    * @return ColorCommand instance (fully bridged)
-    */
+     * Make a color command
+     * @return ColorCommand instance (fully bridged)
+     */
     Command makeColor();
 
     /**
-    * Make a save command
-    * @return SaveCommand instance (fully bridged)
-    */
+     * Make a save command
+     * @return SaveCommand instance (fully bridged)
+     */
     Command makeSave();
 
     /**
-    * Make a edges command
-    * @return EdgesCommand instance (fully bridged)
-    */
+     * Make a edges command
+     * @return EdgesCommand instance (fully bridged)
+     */
     Command makeEdges();
 
     /**
-    * Make a ascii command
-    * @return AsciiCommand instance (fully bridged)
-    */
+     * Make a ascii command
+     * @return AsciiCommand instance (fully bridged)
+     */
     Command makeAscii();
 
     /**
-    * Make a blur command
-    * @return BlurCommand instance (fully bridged)
-    */
+     * Make a blur command
+     * @return BlurCommand instance (fully bridged)
+     */
     Command makeBlur();
 
     /**
-    * Make a smooth command
-    * @return SmoothCommand instance (fully bridged)
-    */
+     * Make a smooth command
+     * @return SmoothCommand instance (fully bridged)
+     */
     Command makeSmooth();
 
     /**
-    * Make a smooth command
-    * @return SmoothCommand instance (fully bridged)
-    */
+     * Make a smooth command
+     * @return SmoothCommand instance (fully bridged)
+     */
     Command makeText();
 
 private:
