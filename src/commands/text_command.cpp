@@ -11,8 +11,10 @@ bool TextCommand::execute() {
 }
 
 void TextCommand::help() {
+    Utils::addSeparator();
     std::cout << "smooth - smooth image with default intensity 1\n";
     std::cout << "smooth [intensity] - use custom smooth intensity (1-3)\n";
+    Utils::addSeparator();
 }
 
 TextCommand::TextCommand(ImageManager* im, const std::deque<std::string>& params)

@@ -16,12 +16,14 @@ int main() {
     cv::utils::logging::setLogLevel(
             cv::utils::logging::LOG_LEVEL_WARNING);
     std::cout << std::endl;
+
     Utils::addSeparator();
     std::cout << "\033[1;34m" << "Pixalyze 2024" << "\033[0m" <<
     " - By: Landon Prince" << std::endl;
     Utils::addSeparator();
     std::cout << "Enter 'help' for command information" << std::endl;
     Utils::addSeparator();
+
     try {
         ImageManager im;
         CommandTrie ct;
@@ -33,7 +35,8 @@ int main() {
             std::getline(std::cin, input);
             if (std::cin.fail()) {
                 Utils::addSeparator();
-                std::cout << "Invalid input" << std::endl;
+                std::cout << "\033[1;31m" << "Invalid input: " << "\033[0m"
+                << std::endl;
                 Utils::addSeparator();
                 std::terminate();
             }
@@ -49,7 +52,8 @@ int main() {
         }
     } catch (std::exception& ex) {
         Utils::addSeparator();
-        std::cout << "Startup error: " << ex.what() << std::endl;
+        std::cout << "\033[1;31m" << "Startup error: " << "\033[0m"
+        << ex.what() << std::endl;
         Utils::addSeparator();
     }
 }

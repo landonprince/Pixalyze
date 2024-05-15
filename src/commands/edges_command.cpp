@@ -1,5 +1,6 @@
 // By: Landon Prince (5/13/2024)
 
+#include "core/utils.h"
 #include "core/image_manager.h"
 #include "commands/edges_command.h"
 #include <iostream>
@@ -10,7 +11,9 @@ bool EdgesCommand::execute() {
 }
 
 void EdgesCommand::help() {
+    Utils::addSeparator();
     std::cout << "edges - detects all edges in loaded image\n";
+    Utils::addSeparator();
 }
 
 EdgesCommand::EdgesCommand(ImageManager *im) : CommandImpl(im) {}

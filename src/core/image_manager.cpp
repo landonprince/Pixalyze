@@ -16,7 +16,7 @@ void ImageManager::loadImage(const std::string& filePath) {
         std::cout << "failed to load image" << std::endl;
     } else {
         Utils::addSeparator();
-        std::cout << "\033[1;32m" << "image successfully loaded" << "\033[0m" << std::endl;
+        std::cout << "\033[1;32m" << "Image successfully loaded" << "\033[0m" << std::endl;
         Utils::addSeparator();
     }
     size_t pos = imagePath.find_last_of("\\/");
@@ -31,7 +31,7 @@ void ImageManager::showImage() const {
     }
     else {
         Utils::addSeparator();
-        std::cout << "\033[1;32m" << "opening" << imageName << "\033[0m" << std::endl;
+        std::cout << "\033[1;32m" << "Opening" << imageName << "\033[0m" << std::endl;
         Utils::addSeparator();
         cv::imshow(imagePath, image);
         cv::waitKey(0);
@@ -64,7 +64,7 @@ void ImageManager::toGray() {
     else {
         cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
         Utils::addSeparator();
-        std::cout << "\033[1;32m" << "converted " + imageName <<
+        std::cout << "\033[1;32m" << "Converted " + imageName <<
         " to grayscale" << "\033[0m" << std::endl;
         Utils::addSeparator();
     }
@@ -80,7 +80,7 @@ void ImageManager::toColor() {
     else {
         cv::cvtColor(image, image, cv::COLOR_GRAY2BGR);
         Utils::addSeparator();
-        std::cout << "\033[1;32m" << "converted " + imageName << " to color"
+        std::cout << "\033[1;32m" << "Converted " + imageName << " to color"
         << "\033[0m" << std::endl;
         Utils::addSeparator();
     }
@@ -95,7 +95,7 @@ void ImageManager::findEdges() {
     }
     cv::Canny(image, image, 50, 150, 3);
     Utils::addSeparator();
-    std::cout << "\033[1;32m" << "edge detection successful" << "\033[0m" << std::endl;
+    std::cout << "\033[1;32m" << "Edge detection successful" << "\033[0m" << std::endl;
     Utils::addSeparator();
 }
 
@@ -141,7 +141,7 @@ void ImageManager::saveImage() const {
     std::string outFile = "pix_" + imageName;
     if (cv::imwrite(outFile, image)) {
         Utils::addSeparator();
-        std::cout << "\033[1;32m" << "image saved to " + outFile << "\033[0m" << std::endl;
+        std::cout << "\033[1;32m" << "Image saved to " + outFile << "\033[0m" << std::endl;
         Utils::addSeparator();
     }
     else {
@@ -155,7 +155,7 @@ void ImageManager::blurImage() {
     }
     cv::GaussianBlur(image, image, cv::Size(27, 27), 25);
     Utils::addSeparator();
-    std::cout << "\033[1;32m" << "image successfully blurred" << "\033[0m" << std::endl;
+    std::cout << "\033[1;32m" << "Image successfully blurred" << "\033[0m" << std::endl;
     Utils::addSeparator();
 }
 
@@ -166,17 +166,17 @@ void ImageManager::smoothImage(int intensity) {
     Utils::addSeparator();
     if (intensity == 1) {
         cv::GaussianBlur(image, image, cv::Size(5, 5), 3);
-        std::cout << "\033[1;32m" << "image successfully smoothed (intensity 1)" << "\033[0m"
+        std::cout << "\033[1;32m" << "Image successfully smoothed (intensity 1)" << "\033[0m"
         << std::endl;
     }
     else if (intensity == 2) {
         cv::GaussianBlur(image, image, cv::Size(7, 7), 5);
-        std::cout << "\033[1;32m" << "image successfully smoothed (intensity 2)" << "\033[0m"
+        std::cout << "\033[1;32m" << "Image successfully smoothed (intensity 2)" << "\033[0m"
         << std::endl;
     }
     else if (intensity == 3) {
         cv::GaussianBlur(image, image, cv::Size(9, 9), 7);
-        std::cout << "\033[1;32m" << "image successfully smoothed (intensity 3)" << "\033[0m"
+        std::cout << "\033[1;32m" << "Image successfully smoothed (intensity 3)" << "\033[0m"
         << std::endl;
     }
     Utils::addSeparator();
@@ -194,6 +194,6 @@ void ImageManager::addText(const std::string& text, const std::string& color, do
     cv::Point textOrg(10, image.rows - baseline - 10);
     cv::putText(image, text, textOrg, fontFace, fontScale, colorScalar, thickness);
     Utils::addSeparator();
-    std::cout << "\033[1;32m" << "successfully added text to image" << "\033[0m" << std::endl;
+    std::cout << "\033[1;32m" << "Successfully added text to image" << "\033[0m" << std::endl;
     Utils::addSeparator();
 }

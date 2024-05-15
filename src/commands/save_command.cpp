@@ -1,5 +1,6 @@
 // By: Landon Prince (5/13/2024)
 
+#include "core/utils.h"
 #include "core/image_manager.h"
 #include "commands/save_command.h"
 #include <iostream>
@@ -10,7 +11,9 @@ bool SaveCommand::execute() {
 }
 
 void SaveCommand::help() {
-    std::cout << "save - saves the loaded image to a new file\n";
+    Utils::addSeparator();
+    std::cout << "save - saves loaded image to a new file\n";
+    Utils::addSeparator();
 }
 
 SaveCommand::SaveCommand(ImageManager *im) : CommandImpl(im) {}

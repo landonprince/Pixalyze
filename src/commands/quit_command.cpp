@@ -1,18 +1,20 @@
 // By: Landon Prince (5/10/2024)
 
-#include "commands/quit_command.h"
 #include "core/utils.h"
+#include "commands/quit_command.h"
 #include <iostream>
 
 bool QuitCommand::execute() {
     Utils::addSeparator();
-    std::cout << "shutting down application...\n";
+    std::cout << "Shutting down application...\n";
     Utils::addSeparator();
     return false;
 }
 
 void QuitCommand::help() {
+    Utils::addSeparator();
     std::cout << "quit - exit the application\n";
+    Utils::addSeparator();
 }
 
 QuitCommand::QuitCommand(ImageManager *im) : CommandImpl(im) {}

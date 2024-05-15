@@ -4,8 +4,7 @@
 #include "commands/help_command.h"
 #include <iostream>
 
-bool HelpCommand::execute()
-{
+bool HelpCommand::execute() {
     if (commandName.empty()) {
         Utils::addSeparator();
         std::cout << "Available commands [" << ct->getCommands().size() << "]:\n" << std::endl;
@@ -21,10 +20,11 @@ bool HelpCommand::execute()
     return true;
 }
 
-void HelpCommand::help()
-{
-    std::cout << "help - list all commands\n";
+void HelpCommand::help() {
+    Utils::addSeparator();
+    std::cout << "help - list all available commands\n";
     std::cout << "help [command] - display help for a given command\n";
+    Utils::addSeparator();
 }
 
 HelpCommand::HelpCommand(ImageManager* im, CommandTrie* ct, const std::deque<std::string>& params)

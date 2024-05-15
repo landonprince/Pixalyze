@@ -11,8 +11,10 @@ bool SmoothCommand::execute() {
 }
 
 void SmoothCommand::help() {
+    Utils::addSeparator();
     std::cout << "smooth - smooth image with default intensity 1\n";
-    std::cout << "smooth [intensity] - use custom smooth intensity (1-3)\n";
+    std::cout << "smooth [intensity] - use custom smoothing intensity (1-3)\n";
+    Utils::addSeparator();
 }
 
 SmoothCommand::SmoothCommand(ImageManager* im, const std::deque<std::string>& params)

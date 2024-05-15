@@ -1,5 +1,6 @@
 // By: Landon Prince (5/12/2024)
 
+#include "core/utils.h"
 #include "core/image_manager.h"
 #include "commands/color_command.h"
 #include <iostream>
@@ -10,7 +11,9 @@ bool ColorCommand::execute() {
 }
 
 void ColorCommand::help() {
+    Utils::addSeparator();
     std::cout << "color - converts loaded image from grayscale to color\n";
+    Utils::addSeparator();
 }
 
 ColorCommand::ColorCommand(ImageManager *im) : CommandImpl(im) {}

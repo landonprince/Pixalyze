@@ -11,8 +11,10 @@ bool LoadCommand::execute() {
 }
 
 void LoadCommand::help() {
+    Utils::addSeparator();
     std::cout << "load [image file path] - load image from file path\n";
-    std::cout << "ex: load C:\\pictures\\image.jpg\n";
+    std::cout << "Example: load C:\\pictures\\image.jpg\n";
+    Utils::addSeparator();
 }
 
 LoadCommand::LoadCommand(ImageManager* im, const std::deque<std::string>& params)
