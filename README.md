@@ -38,3 +38,4 @@ This application primarily utilizes the OpenCV library to rapidly parse and mani
 
 ## Command Structure
 ![UML Diagram](umldiagram.png)
+![Example](example.png)
