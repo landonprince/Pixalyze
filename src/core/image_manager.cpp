@@ -276,7 +276,7 @@ void ImageManager::detectFaces() {
         cv::cvtColor(image, image, cv::COLOR_BGR2GRAY);
     }
     cv::CascadeClassifier haar_cascade;
-    haar_cascade.load("haar_face.xml");
+    haar_cascade.load(R"(C:\Users\owner\CLionProjects\Pixalyze\haar_face.xml)");
     if (haar_cascade.empty()) {
         throw std::runtime_error("failed to load haar cascade");
     }
@@ -287,6 +287,8 @@ void ImageManager::detectFaces() {
     for (const auto& rect : faces_rect) {
         cv::rectangle(image, rect, cv::Scalar(255, 0, 0), 2);
     }
-    std::cout << "Number of faces detected: " << faces_rect.size() << std::endl;
-
+    Utils::addSeparator();
+    std::cout << "\033[1;32m" << "Number of faces detected: " << faces_rect.size()
+    << "\033[0m" << std::endl;
+    Utils::addSeparator();
 };
