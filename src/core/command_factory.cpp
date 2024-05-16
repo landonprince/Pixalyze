@@ -15,6 +15,10 @@
 #include "commands/blur_command.h"
 #include "commands/smooth_command.h"
 #include "commands/text_command.h"
+#include "commands/contours_command.h"
+#include "commands/reset_command.h"
+#include "commands/histogram_command.h"
+#include "commands/faces_command.h"
 
 CommandFactory::CommandFactory(ImageManager* im, CommandTrie* ct)
         : im(im), ct(ct) { registerCommands(); }
@@ -61,6 +65,14 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeSmooth(); });
     ct->registerCommand("text", &TextCommand::help,
                         [this]() { return this->makeText(); });
+    ct->registerCommand("contours", &ContoursCommand::help,
+                        [this]() { return this->makeContours(); });
+    ct->registerCommand("reset", &ResetCommand::help,
+                        [this]() { return this->makeReset(); });
+    ct->registerCommand("histogram", &HistogramCommand::help,
+                        [this]() { return this->makeHistogram(); });
+    ct->registerCommand("faces", &FacesCommand::help,
+                        [this]() { return this->makeFaces(); });
 }
 
 Command CommandFactory::makeCommand(const std::string& input) {
@@ -126,4 +138,20 @@ Command CommandFactory::makeSmooth() {
 
 Command CommandFactory::makeText() {
     return Command(new TextCommand(im, params));
+}
+
+Command CommandFactory::makeContours() {
+    return Command(new ContoursCommand(im));
+}
+
+Command CommandFactory::makeReset() {
+    return Command(new ResetCommand(im));
+}
+
+Command CommandFactory::makeHistogram() {
+    return Command(new HistogramCommand(im));
+}
+
+Command CommandFactory::makeFaces() {
+    return Command(new FacesCommand(im));
 }

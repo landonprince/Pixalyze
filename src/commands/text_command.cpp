@@ -12,8 +12,8 @@ bool TextCommand::execute() {
 
 void TextCommand::help() {
     Utils::addSeparator();
-    std::cout << "smooth - smooth image with default intensity 1\n";
-    std::cout << "smooth [intensity] - use custom smooth intensity (1-3)\n";
+    std::cout << "text [text] - add text to loaded image with default size & color\n";
+    std::cout << "smooth [text] [size] [color] - use custom size & color\n";
     Utils::addSeparator();
 }
 

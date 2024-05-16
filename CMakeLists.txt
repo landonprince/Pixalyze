@@ -47,7 +47,15 @@ add_executable(Pixalyze main.cpp
         include/commands/smooth_command.h
         src/commands/text_command.cpp
         include/commands/text_command.h
-        src/core/utils.cpp)
+        src/core/utils.cpp
+        src/commands/contours_command.cpp
+        include/commands/contours_command.h
+        src/commands/reset_command.cpp
+        include/commands/reset_command.h
+        src/commands/histogram_command.cpp
+        include/commands/histogram_command.h
+        src/commands/faces_command.cpp
+        include/commands/faces_command.h)
 
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
 

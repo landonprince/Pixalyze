@@ -12,7 +12,7 @@ bool EdgesCommand::execute() {
 
 void EdgesCommand::help() {
     Utils::addSeparator();
-    std::cout << "edges - detects all edges in loaded image\n";
+    std::cout << "edges - applies edge detection to loaded image\n";
     Utils::addSeparator();
 }
 

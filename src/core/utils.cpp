@@ -42,12 +42,10 @@ void Utils::enableVirtualTerminalProcessing() {
     if (hOut == INVALID_HANDLE_VALUE) {
         return;
     }
-
     DWORD dwMode = 0;
     if (!GetConsoleMode(hOut, &dwMode)) {
         return;
     }
-
     dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
     if (!SetConsoleMode(hOut, dwMode)) {
         std::cerr << "Failed to set console mode." << std::endl;

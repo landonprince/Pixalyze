@@ -25,10 +25,10 @@ SmoothCommand::SmoothCommand(ImageManager* im, const std::deque<std::string>& pa
         try {
             intensity = std::stoi(params.front());
         } catch (const std::invalid_argument& ex) {
-            throw std::invalid_argument("smoothness intensity not found");
+            throw std::invalid_argument("smoothing intensity not found");
         }
         if (intensity < 1 || intensity > 3) {
-            throw std::invalid_argument("smoothness intensity not found");
+            throw std::invalid_argument("smoothing intensity not found");
         }
     }
     else {

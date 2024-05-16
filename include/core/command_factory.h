@@ -115,6 +115,30 @@ public:
      */
     Command makeText();
 
+    /**
+     * Make a contours command
+     * @return ContoursCommand instance (fully bridged)
+     */
+    Command makeContours();
+
+    /**
+     * Make a reset command
+     * @return ResetCommand instance (fully bridged)
+     */
+    Command makeReset();
+
+    /**
+     * Make a histogram command
+     * @return HistogramCommand instance (fully bridged)
+     */
+    Command makeHistogram();
+
+   /**
+    * Make a faces command
+    * @return FacesCommand instance (fully bridged)
+    */
+    Command makeFaces();
+
 private:
     ImageManager* im; // ImageManager against which to execute
     CommandTrie* ct; // CommandTrie to get commands

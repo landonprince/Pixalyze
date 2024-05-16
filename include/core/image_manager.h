@@ -73,6 +73,20 @@ public:
      */
     void addText(const std::string& text, const std::string& color, double fontSize);
 
+    /**
+     * Highlights and counts all contours in loaded image
+     */
+    void findContours();
+
+    /**
+     * resets modifications made to loaded image
+     */
+    void resetImage();
+
+    void createHistogram() const;
+
+    void detectFaces();
+
 private:
     cv::Mat image;
     std::string imagePath;
