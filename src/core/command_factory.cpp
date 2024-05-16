@@ -7,7 +7,7 @@
 #include "commands/load_command.h"
 #include "commands/show_command.h"
 #include "commands/analyze_command.h"
-#include "commands/grayscale_command.h"
+#include "commands/gray_command.h"
 #include "commands/color_command.h"
 #include "commands/save_command.h"
 #include "commands/edges_command.h"
@@ -49,8 +49,8 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeShow(); });
     ct->registerCommand("analyze", &AnalyzeCommand::help,
                         [this]() { return this->makeAnalyze(); });
-    ct->registerCommand("grayscale", &GrayscaleCommand::help,
-                        [this]() { return this->makeGrayscale(); });
+    ct->registerCommand("gray", &GrayCommand::help,
+                        [this]() { return this->makeGray(); });
     ct->registerCommand("color", &ColorCommand::help,
                         [this]() { return this->makeColor(); });
     ct->registerCommand("save", &SaveCommand::help,
@@ -108,8 +108,8 @@ Command CommandFactory::makeAnalyze() {
     return Command(new AnalyzeCommand(im));
 }
 
-Command CommandFactory::makeGrayscale() {
-    return Command(new GrayscaleCommand(im));
+Command CommandFactory::makeGray() {
+    return Command(new GrayCommand(im));
 }
 
 Command CommandFactory::makeColor() {

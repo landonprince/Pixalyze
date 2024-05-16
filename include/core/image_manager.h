@@ -83,8 +83,14 @@ public:
      */
     void resetImage();
 
+    /**
+     * create a histogram from loaded image based on pixel value
+     */
     void createHistogram() const;
 
+    /**
+     * detect all faces in loaded image
+     */
     void detectFaces();
 
 private:

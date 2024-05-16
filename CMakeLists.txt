@@ -31,8 +31,8 @@ add_executable(Pixalyze main.cpp
         include/commands/command_trie.h
         src/commands/analyze_command.cpp
         include/commands/analyze_command.h
-        src/commands/grayscale_command.cpp
-        include/commands/grayscale_command.h
+        src/commands/gray_command.cpp
+        include/commands/gray_command.h
         src/commands/color_command.cpp
         include/commands/color_command.h
         src/commands/save_command.cpp

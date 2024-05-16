@@ -1,7 +1,7 @@
 // By: Landon Prince (5/12/2024)
 
-#ifndef PIXALYZE_GRAYSCALE_COMMAND_H
-#define PIXALYZE_GRAYSCALE_COMMAND_H
+#ifndef PIXALYZE_GRAY_COMMAND_H
+#define PIXALYZE_GRAY_COMMAND_H
 
 #include "command_impl.h"
 
@@ -9,14 +9,14 @@
  * Represents a request to turn a loaded image to grayscale
  * @extends CommandImpl
  */
-class GrayscaleCommand final : public CommandImpl {
+class GrayCommand final : public CommandImpl {
 public:
-    GrayscaleCommand() = delete; // only allow factory to create
+    GrayCommand() = delete; // only allow factory to create
 
     // Default destructor, copy-constructor and assignment
-    ~GrayscaleCommand() override = default;
-    GrayscaleCommand(const GrayscaleCommand&) = default;
-    GrayscaleCommand& operator=(const GrayscaleCommand&) = default;
+    ~GrayCommand() override = default;
+    GrayCommand(const GrayCommand&) = default;
+    GrayCommand& operator=(const GrayCommand&) = default;
 
     /**
      * Execute the command
@@ -36,7 +36,7 @@ private:
      * Primary constructor
      * @param im ImageManager against which it executes
      */
-    explicit GrayscaleCommand(ImageManager* im);
+    explicit GrayCommand(ImageManager* im);
 };
 
-#endif //PIXALYZE_GRAYSCALE_COMMAND_H
+#endif //PIXALYZE_GRAY_COMMAND_H

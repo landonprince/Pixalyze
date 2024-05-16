@@ -68,10 +68,10 @@ public:
     Command makeAnalyze();
 
     /**
-     * Make a grayscale command
-     * @return GrayscaleCommand instance (fully bridged)
+     * Make a gray command
+     * @return GrayCommand instance (fully bridged)
      */
-    Command makeGrayscale();
+    Command makeGray();
 
     /**
      * Make a color command
