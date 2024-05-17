@@ -49,5 +49,5 @@ To run Pixalyze, open Powershell and enter the following commands:
 - ascii - Create ASCII art of loaded image
   
 ## Command Structure
-### Every command is a part of a robust command structure that maximizes efficiency & effectiveness<br><br>
+### Every command is a part of a robust command structure that maximizes efficiency
 ![Command Structure](command_structure.png)
