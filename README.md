@@ -27,7 +27,7 @@ To run Pixalyze, open Powershell and enter the following commands:
 ### Example usage of the Pixalyze application:<br>
 ![Example Usage](example_usage.png)
 
-## Command List
+## Commands
 ### 15+ unique commands to analyze and process your image
 - help - List all available commands
 - quit - Exit the application
@@ -46,8 +46,6 @@ To run Pixalyze, open Powershell and enter the following commands:
 - contours - Apply contour detection to loaded image
 - histogram - Create histogram plot of pixel values
 - ascii - Create ASCII art of loaded image
-  
-## Command Structure
 ### Every command is a part of a robust command structure that maximizes efficiency<br><br>
 ![Command Structure](command_structure.png)
 
