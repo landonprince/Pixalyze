@@ -15,7 +15,6 @@ int main() {
     Utils::enableVirtualTerminalProcessing();
     cv::utils::logging::setLogLevel(
             cv::utils::logging::LOG_LEVEL_WARNING);
-    std::cout << std::endl;
 
     Utils::addSeparator();
     std::cout << "\033[1;34m" << "Pixalyze 2024" << "\033[0m" <<
