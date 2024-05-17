@@ -22,9 +22,8 @@ To run Pixalyze, open Powershell and enter the following commands:
   ./pixalyze
  ```
 ## Usage
-- After running the application, enter 'help' to see the full list of commands<br>
-- Enter 'help [command]' to get information on a specific command<br>
-- Any modifications made to the original image will not persist, enter 'save' to save
+- After running the application, enter 'help' to see the full list of commands
+- Enter 'help [command]' to get information on a specific command
 ### Example usage of the Pixalyze application:<br>
 ![Example Usage](example_usage.png)
 
@@ -51,3 +50,26 @@ To run Pixalyze, open Powershell and enter the following commands:
 ## Command Structure
 ### Every command is a part of a robust command structure that maximizes efficiency<br><br>
 ![Command Structure](command_structure.png)
+
+## Contributing
+To contribute to Pixalyze, follow these steps:
+- ### Install Chocolatey library manager
+  - Run Powershell as administrator and run the following command:
+  - ```
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+- ### Install OpenCV library
+  - Run Powershell as administrator and run the following command:
+  - ```
+    choco install opencv   
+- ### Set up system & environment variables
+  - Open 'Environment Variables,' and add the following system variables:
+  - ```
+    OPENCV_DIR           | C:\tools\opencv\build\x64\vc14\lib
+    OPENCV_INCLUDE_PATHS | C:\tools\opencv\build\include
+    OPENCV_LINK_LIBS     | opencv_world460
+    OPENCV_LINK_PATHS    | C:\tools\opencv\build\x64\vc15\lib
+    OPENCV_PATH          | C:\tools\opencv
+  - Double-click on 'PATH' and add the following environment variable: 
+  - ```
+    User Variables / Path / C:\tools\opencv\build\x64\vc15\bin
+After those steps, clone the repository per the installation instructions and open the project in your IDE.
