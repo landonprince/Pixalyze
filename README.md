@@ -27,25 +27,25 @@ To run Pixalyze, open Powershell and enter the following commands:
 - Any modifications made to the original image will not persist, enter 'save' to save
 ### __Example usage of the Pixalyze application:__<br>
 ![Example Usage](example_usage.png)
-## Commands
-15+ unique commands to analyze and process your image
+## Command List
+### 15+ unique commands to analyze and process your image
 - help - List all available commands
-- quit - exit the application
-- load - load image from file path
-- reset - reset modifications made to loaded image
-- save - save loaded image to a new file
-- show - display loaded image in a new window
-- faces - detect all faces in loaded image
-- analyze - display properties of the loaded image
-- gray - convert loaded image from color to grayscale
-- color - convert loaded image from grayscale to color
-- blur - blur the loaded image
-- smooth - smooth the loaded image
-- text - add text to the loaded image
-- edges - apply edge detection to loaded image
-- contours - apply contour detection to loaded image
-- histogram - create histogram plot of pixel values
-- ascii - create ascii art of loaded image
+- quit - Exit the application
+- load - Load image from file path
+- reset - Reset modifications made to loaded image
+- save - Save loaded image to a new file
+- show - Display loaded image in a new window
+- faces - Detect all faces in loaded image
+- analyze - Display properties of the loaded image
+- gray - Convert loaded image from color to grayscale
+- color - Convert loaded image from grayscale to color
+- blur - Blur the loaded image
+- smooth - Smooth the loaded image
+- text - Add text to the loaded image
+- edges - Apply edge detection to loaded image
+- contours - Apply contour detection to loaded image
+- histogram - Create histogram plot of pixel values
+- ascii - Create ASCII art of loaded image
   
-### __Command Structure:__<br>
+## Command Structure
 ![Command Structure](command_structure.png)
