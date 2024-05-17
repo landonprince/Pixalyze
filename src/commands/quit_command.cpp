@@ -13,7 +13,7 @@ bool QuitCommand::execute() {
 
 void QuitCommand::help() {
     Utils::addSeparator();
-    std::cout << "quit - exit the application\n";
+    std::cout << "quit - Exit the application\n";
     Utils::addSeparator();
 }
 

@@ -6,7 +6,7 @@
 #include "command_impl.h"
 
 /**
- * Represents a request to load in an image
+ * Represents a request to smooth an image
  * @extends CommandImpl
  */
 class SmoothCommand final : public CommandImpl {

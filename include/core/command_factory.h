@@ -26,16 +26,16 @@ public:
     CommandFactory(ImageManager* im, CommandTrie* ct);
 
     /**
-    * Register all commands with the CommandTrie
-    */
-    void registerCommands();
-
-    /**
      * Takes user input and creates appropriate command
      * @param input user input string
      * @return command ready for execution
      */
     Command makeCommand(const std::string& input);
+
+    /**
+    * Register all commands with the CommandTrie
+    */
+    void registerCommands();
 
     /**
      * Make a quit command

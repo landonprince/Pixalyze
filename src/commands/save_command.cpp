@@ -12,7 +12,7 @@ bool SaveCommand::execute() {
 
 void SaveCommand::help() {
     Utils::addSeparator();
-    std::cout << "save - saves loaded image to a new file\n";
+    std::cout << "save - Save loaded image to a new file\n";
     Utils::addSeparator();
 }
 

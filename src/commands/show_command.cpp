@@ -12,7 +12,7 @@ bool ShowCommand::execute() {
 
 void ShowCommand::help() {
     Utils::addSeparator();
-    std::cout << "show - displays loaded image in a new window\n";
+    std::cout << "show - display loaded image in a new window\n";
     Utils::addSeparator();
 }
 

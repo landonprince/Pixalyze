@@ -12,7 +12,7 @@ bool ContoursCommand::execute() {
 
 void ContoursCommand::help() {
     Utils::addSeparator();
-    std::cout << "contours - applies contour detection to loaded image\n";
+    std::cout << "contours - Apply contour detection to loaded image\n";
     Utils::addSeparator();
 }
 

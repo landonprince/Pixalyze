@@ -12,7 +12,7 @@ bool AsciiCommand::execute() {
 
 void AsciiCommand::help() {
     Utils::addSeparator();
-    std::cout << "ascii - saves ascii art of loaded image to a new file\n";
+    std::cout << "ascii - Save ASCII art of loaded image to a new file\n";
     Utils::addSeparator();
 }
 

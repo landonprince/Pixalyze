@@ -12,7 +12,7 @@ bool BlurCommand::execute() {
 
 void BlurCommand::help() {
     Utils::addSeparator();
-    std::cout << "blur - blurs the loaded image\n";
+    std::cout << "blur - Blur the loaded image\n";
     Utils::addSeparator();
 }
 

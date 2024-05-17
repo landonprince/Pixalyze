@@ -12,7 +12,7 @@ bool FacesCommand::execute() {
 
 void FacesCommand::help() {
     Utils::addSeparator();
-    std::cout << "faces - detect all faces in loaded image\n";
+    std::cout << "faces - Detect all faces in loaded image\n";
     Utils::addSeparator();
 }
 

@@ -12,7 +12,7 @@ class CommandImpl;
 class Command {
 public:
     Command() = delete; // only command factory makes commands
-    ~Command(); // deletes the bridge
+    ~Command();
 
     // disallow copy and assignment operations
     Command(const Command&) = delete;

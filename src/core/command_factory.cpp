@@ -38,6 +38,17 @@ size_t split(const std::string& txt, std::deque<std::string>& strs, char ch) {
     return strs.size();
 }
 
+Command CommandFactory::makeCommand(const std::string& input) {
+    split(input, params, ' ');
+    std::string keyword = Utils::strLower(params.front());
+    params.pop_front();
+
+    auto factoryFunc = ct->findFactory(keyword);
+    if (factoryFunc) return factoryFunc();
+    else if (keyword.empty()) throw std::logic_error("use quit command to exit...");
+    else throw std::logic_error("unrecognized command: " + keyword);
+}
+
 void CommandFactory::registerCommands() {
     ct->registerCommand("quit", &QuitCommand::help,
                         [this]() { return this->makeQuit(); });
@@ -73,19 +84,6 @@ void CommandFactory::registerCommands() {
                         [this]() { return this->makeHistogram(); });
     ct->registerCommand("faces", &FacesCommand::help,
                         [this]() { return this->makeFaces(); });
-}
-
-Command CommandFactory::makeCommand(const std::string& input) {
-    // separate the command from the input parameters
-    split(input, params, ' ');
-    std::string keyword = Utils::strLower(params.front());
-    params.pop_front();
-
-    // use command trie to determine which command to create
-    auto factoryFunc = ct->findFactory(keyword);
-    if (factoryFunc) return factoryFunc();
-    else if (keyword.empty()) throw std::logic_error("use quit command to exit...");
-    else throw std::logic_error("unrecognized command: " + keyword);
 }
 
 Command CommandFactory::makeQuit() {

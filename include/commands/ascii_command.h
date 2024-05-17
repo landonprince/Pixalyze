@@ -39,7 +39,4 @@ private:
     explicit AsciiCommand(ImageManager* im);
 };
 
-
-
-
 #endif //PIXALYZE_ASCII_COMMAND_H

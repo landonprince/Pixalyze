@@ -11,7 +11,6 @@
 
 class Utils final {
 public:
-    // delete creation, can only call static methods
     Utils() = delete;
     ~Utils() = delete;
     Utils(const Utils&) = delete;
@@ -50,10 +49,13 @@ public:
      */
     static void enableVirtualTerminalProcessing();
 
+    /**
+     * prints a line to separate console output
+     */
     static void addSeparator();
 
 private:
-    static const std::map<std::string, cv::Scalar> colorMap; // color map
+    static const std::map<std::string, cv::Scalar> colorMap;
 };
 
 #endif //PIXALYZE_UTILS_H

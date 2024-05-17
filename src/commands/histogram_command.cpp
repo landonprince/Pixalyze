@@ -12,7 +12,7 @@ bool HistogramCommand::execute() {
 
 void HistogramCommand::help() {
     Utils::addSeparator();
-    std::cout << "histogram - create histogram of loaded image based on pixel value\n";
+    std::cout << "histogram - Create histogram of loaded image based on pixel value\n";
     Utils::addSeparator();
 }
 

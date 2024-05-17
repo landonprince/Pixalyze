@@ -12,8 +12,8 @@ bool SmoothCommand::execute() {
 
 void SmoothCommand::help() {
     Utils::addSeparator();
-    std::cout << "smooth - smooth image with default intensity 1\n";
-    std::cout << "smooth [intensity] - use custom smoothing intensity (1-3)\n";
+    std::cout << "smooth - Smooth image with default intensity\n";
+    std::cout << "smooth [intensity] - Use custom smoothing intensity (1-3)\n";
     Utils::addSeparator();
 }
 

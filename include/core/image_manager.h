@@ -7,7 +7,6 @@
 
 class ImageManager {
 public:
-    // default constructor for now
     ImageManager() = default;
     ~ImageManager() = default;
     ImageManager(const ImageManager&) = delete;

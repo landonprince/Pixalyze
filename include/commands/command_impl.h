@@ -20,8 +20,7 @@ public:
      * Primary constructor
      * @param db pointer to database against which to execute
      */
-    explicit CommandImpl(ImageManager* im)
-            : im(im) {}
+    explicit CommandImpl(ImageManager* im) : im(im) {}
 
     virtual ~CommandImpl() = default; // virtual for polymorphic destruction
 

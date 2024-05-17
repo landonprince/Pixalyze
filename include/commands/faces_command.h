@@ -6,7 +6,7 @@
 #include "command_impl.h"
 
 /**
- * Represents a request to create histogram of loaded image
+ * Represents a request to detect faces in loaded image
  * @extends CommandImpl
  */
 class FacesCommand final : public CommandImpl {

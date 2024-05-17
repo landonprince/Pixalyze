@@ -12,7 +12,7 @@ bool ColorCommand::execute() {
 
 void ColorCommand::help() {
     Utils::addSeparator();
-    std::cout << "color - converts loaded image from grayscale to color\n";
+    std::cout << "color - Convert loaded image from grayscale to color\n";
     Utils::addSeparator();
 }
 

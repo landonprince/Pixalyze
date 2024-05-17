@@ -12,7 +12,7 @@ bool ResetCommand::execute() {
 
 void ResetCommand::help() {
     Utils::addSeparator();
-    std::cout << "reset - reset modifications made to loaded image\n";
+    std::cout << "reset - Reset modifications made to loaded image\n";
     Utils::addSeparator();
 }
 

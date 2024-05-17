@@ -12,7 +12,7 @@ bool LoadCommand::execute() {
 
 void LoadCommand::help() {
     Utils::addSeparator();
-    std::cout << "load [image file path] - load image from file path\n";
+    std::cout << "load [image file path] - Load image from file path\n";
     std::cout << "Example: load C:\\pictures\\image.jpg\n";
     Utils::addSeparator();
 }

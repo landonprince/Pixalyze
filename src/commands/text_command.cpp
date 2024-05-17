@@ -12,8 +12,8 @@ bool TextCommand::execute() {
 
 void TextCommand::help() {
     Utils::addSeparator();
-    std::cout << "text [text] - add text to loaded image with default size & color\n";
-    std::cout << "smooth [text] [size] [color] - use custom size & color\n";
+    std::cout << "text [text] - Add text to loaded image with default size & color\n";
+    std::cout << "text [text] [size] [color] - Use custom size & color\n";
     Utils::addSeparator();
 }
 

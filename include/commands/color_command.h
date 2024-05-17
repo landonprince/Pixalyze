@@ -38,4 +38,5 @@ private:
      */
     explicit ColorCommand(ImageManager* im);
 };
+
 #endif //PIXALYZE_COLOR_COMMAND_H
