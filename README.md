@@ -4,7 +4,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Description
-Pixalyze is an easy-to-use _command-line application_. It allows for the use of an evergrowing collection of commands to analyze and process images.
+Pixalyze is an easy-to-use command-line application. It allows for the use of an evergrowing collection of commands to analyze and process images.
 This application primarily utilizes the OpenCV library to rapidly parse and manipulate images in real-time. 
 
 ## Tools
@@ -16,6 +16,10 @@ This application primarily utilizes the OpenCV library to rapidly parse and mani
 - __Libraries:__ OpenCV 4.9.0
 
 ## Installation
+- ### Clone repository
+  - ```
+    git clone https://github.com/yourusername/your-repo-name.git
+    cd your-repo-name
 - ### Install Chocolatey library manager
   - Run Powershell as administrator and run the following command:
   - ```
@@ -35,7 +39,7 @@ This application primarily utilizes the OpenCV library to rapidly parse and mani
   - Double-click on 'PATH' and add the following environment variable: 
   - ```
     User Variables / Path / C:\tools\opencv\build\x64\vc15\bin
-
+## Usage
+![Example Usage](example_usage.png)
 ## Command Structure
-![UML Diagram](umldiagram.png)
-![Example](example.png)
+![Command Structure](command_structure.png)
