@@ -25,8 +25,9 @@ To run Pixalyze, open Powershell and enter the following commands:
 - After running the application, enter 'help' to see the full list of commands<br>
 - Enter 'help [command]' to get information on a specific command<br>
 - Any modifications made to the original image will not persist, enter 'save' to save
-### __Example usage of the Pixalyze application:__<br>
+### Example usage of the Pixalyze application:<br>
 ![Example Usage](example_usage.png)
+
 ## Command List
 ### 15+ unique commands to analyze and process your image
 - help - List all available commands
@@ -48,4 +49,5 @@ To run Pixalyze, open Powershell and enter the following commands:
 - ascii - Create ASCII art of loaded image
   
 ## Command Structure
+### Every command is a part of a robust command structure that maximizes efficiency & effectiveness<br><br>
 ![Command Structure](command_structure.png)
