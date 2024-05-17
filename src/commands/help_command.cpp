@@ -24,6 +24,7 @@ void HelpCommand::help() {
     Utils::addSeparator();
     std::cout << "help - list all available commands\n";
     std::cout << "help [command] - display help for a given command\n";
+    std::cout << "Example: help faces\n";
     Utils::addSeparator();
 }
 
