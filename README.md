@@ -23,6 +23,6 @@ This application primarily utilizes the OpenCV library to rapidly parse and mani
     cd your-repo-name/cmake-build-debug
     ./pixalyze
 ## Usage
-![Example Usage](example_usage.png)
+![Example Usage](example_image.png)
 ## Command Structure
 ![Command Structure](command_structure.png)
